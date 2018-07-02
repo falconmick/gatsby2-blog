@@ -3,7 +3,7 @@ import styled from 'react-emotion';
 import profilePic from './profile-pic.jpg';
 
 const GreenLink = styled.a`
-  color: red;
+  color: orange;
   &:hover {
     color: yellow;
   }

@@ -1,3 +1,3 @@
 test('city database has Vienna', () => {
-  expect(true).toBeTruthy();
+  expect(false).toBeTruthy();
 });

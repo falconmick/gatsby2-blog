@@ -23,9 +23,7 @@ const BlogIndex = props => {
         return (
           <div key={node.fields.slug}>
             <h3>
-              <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                {title}
-              </Link>
+              <Link to={node.fields.slug}>{title}</Link>
             </h3>
             <small>{node.frontmatter.date}</small>
             <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />

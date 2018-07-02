@@ -1,5 +1,13 @@
 import React from 'react';
+import styled from 'react-emotion';
 import profilePic from './profile-pic.jpg';
+
+const GreenLink = styled.a`
+  color: red;
+  &:hover {
+    color: yellow;
+  }
+`;
 
 export const Bio = () => {
   return (
@@ -8,7 +16,9 @@ export const Bio = () => {
       <p>
         Written by <strong>Kyle Mathews</strong> who lives and works in San Francisco building
         useful things.{' '}
-        <a href="https://twitter.com/kylemathews">You should follow him on Twitter</a>
+        <GreenLink href="https://twitter.com/kylemathews">
+          You should follow him on Twitter
+        </GreenLink>
       </p>
     </div>
   );

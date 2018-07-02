@@ -7,13 +7,14 @@
     "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
   },
   "dependencies": {
+    "apollo-codegen": "^0.20.2",
     "emotion": "^9.2.4",
     "emotion-server": "^9.2.4",
     "gatsby": "next",
     "gatsby-plugin-emotion": "next",
-    "gatsby-plugin-netlify": "next",
     "gatsby-plugin-feed": "next",
     "gatsby-plugin-google-analytics": "next",
+    "gatsby-plugin-netlify": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sharp": "next",
@@ -26,11 +27,13 @@
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
     "lodash": "^4.17.10",
+    "nodemon": "^1.17.5",
     "prismjs": "^1.15.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.4",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "wait-on": "^2.1.0"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
@@ -55,6 +58,7 @@
     "format": "prettier --write 'src/**/*.js'",
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "schema": "nodemon --watch app --watch src/pages --exec \"wait-on http://localhost:8000 && apollo-codegen download-schema http://localhost:8000/___graphql --output graphql.schema.json\""
   }
 }

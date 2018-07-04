@@ -1,10 +1,18 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import rehypeReact from 'rehype-react';
 import { Link, graphql } from 'gatsby';
 import get from 'lodash/get';
 
 import { Bio } from '../components/Bio';
 import { PageLayout } from '../components/PageLayout';
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: {
+    h2: () => <h2 className="cray cray" />,
+  },
+}).Compiler;
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -17,7 +25,7 @@ class BlogPostTemplate extends React.Component {
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.date}</p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        {renderAst(post.htmlAst)}
         <hr />
         <Bio />
 
@@ -63,7 +71,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      html
+      htmlAst
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

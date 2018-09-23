@@ -20,7 +20,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)\public'
+    SourceFolder: '$(Build.SourcesDirectory)/public'
     Contents: '**/*'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 

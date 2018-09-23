@@ -1,0 +1,1 @@
+export { astBlogPostFactory } from './blogPost';

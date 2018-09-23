@@ -6,19 +6,17 @@ import get from 'lodash/get';
 
 import { Bio } from '../components/Bio';
 import { PageLayout } from '../components/PageLayout';
+import { astBlogPostFactory } from '../themes/default';
 
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: {
-    h2: () => <h2 className="cray cray" />,
-  },
-}).Compiler;
+const renderAst = astBlogPostFactory(theme => ({}));
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
     const { previous, next } = this.props.pageContext;
+
+    console.log({ renderAst });
 
     return (
       <PageLayout location={this.props.location}>

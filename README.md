@@ -1,4 +1,4 @@
-# gatsby-starter-blog
+# gatsby-starter-blog go
 Gatsby starter for creating a blog
 
 Install this starter (assuming Gatsby is installed) by running from your CLI:
